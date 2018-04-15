@@ -18,8 +18,8 @@ public class Main
     public static void main( final String[] args ) throws Exception
     {
         final long sequentialTime = sumSequential( );
-        final long parallelTime =sumParallelUsingExecutorService( );
-        //final long parallelTime = sumParallelUsingForkJoin( );
+        //final long parallelTime =sumParallelUsingExecutorService( );
+        final long parallelTime = sumParallelUsingForkJoin( );
         //final long parallelTime = sumParallelUsingStream( );
         System.out.println( "Speed-up: " + SpeedUp.speedup( sequentialTime, parallelTime ) );
     }

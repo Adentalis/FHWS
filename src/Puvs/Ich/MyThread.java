@@ -1,4 +1,4 @@
-package Puvs;
+package Puvs.Ich;
 
 public class MyThread extends Thread {
 
