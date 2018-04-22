@@ -18,18 +18,23 @@ public class CardManager {
 
     public ArrayList<Hand> getCardsForPlayers(int round){
         this.roundNumber= round;
+        numberOfCardsThisRound = roundNumber * numberOfPlayers;
         hands.clear();
         initAllCards();
-        numberOfCardsThisRound = roundNumber * numberOfPlayers;
         initChoosenCards();
 
-        for(int i = 0 ; i < numberOfPlayers ; i++){
-
+        for(int a : choosenCards){
+            System.out.print(a + " ");
 
         }
 
+        ArrayList<Integer> cardsForPlayer = new ArrayList<>();
+        cardsForPlayer.add(choosenCards.get(0));
+        cardsForPlayer.add(choosenCards.get(1));
+        cardsForPlayer.add(choosenCards.get(2));
+        cardsForPlayer.add(choosenCards.get(3));
 
-
+        hands.add(new Hand(cardsForPlayer));
 
         return hands;
     }
