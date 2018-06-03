@@ -1,18 +1,22 @@
 package Wizzard.Player;
 
 public class HumanPlayer extends AbstractPlayer {
-    @Override
-    public int getPoints() {
-        return points;
-    }
+
 
 
     public HumanPlayer(String name ){
-        this.name=name;
+        super(name);
+    }
+
+
+    @Override
+    public void getMove() {
+
     }
 
     @Override
-    public void showHand() {
+    public int sayStiche() {
 
+        return 0;
     }
 }

@@ -1,21 +1,54 @@
-package Wizzard;
+package Wizzard.Karten;
 
-;
 
-import static Wizzard.Color.*;
-import static Wizzard.Value.*;
+import java.util.Comparator;
+
+import static Wizzard.Karten.Color.*;
+import static Wizzard.Karten.Value.*;
 
 public class Card {
     Enum Color;
     Enum Value;
+    private int id;
+
+    public Enum getColor() {
+        return Color;
+    }
+
+    public void setColor(Enum color) {
+        Color = color;
+    }
 
     public Card(Enum Color, Enum Value){
         this.Color=Color;
         this.Value=Value;
     }
 
+    public Enum getValue() {
+        return Value;
+    }
+
+    public void setValue(Enum value) {
+        Value = value;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public static Comparator<Card> comp = new Comparator<Card>() {
+        public int compare(Card c1 ,Card c2){
+            return c2.getId()-c1.getId();
+        }
+    };
+
     public Card (int i) {
-        switch (i) {
+        this.id = i;
+        switch (id) {
             case 1:
                 this.Color= BLUE;
                 this.Value= ONE;
@@ -229,154 +262,25 @@ public class Card {
             case 55:
             case 56:
                 this.Color= WHITE;
-                this.Value= WIZZARD;
+                this.Value= FOOL;
                 break;
             case 57:
             case 58:
             case 59:
             case 60:
                 this.Color= WHITE;
-                this.Value= FOOL;
+                this.Value= WIZZARD;
                 break;
 
             default:
-                this.Color= Wizzard.Color.NONE;
-                this.Value= Wizzard.Color.NONE;
+                this.Color= Wizzard.Karten.Color.NONE;
+                this.Value= Wizzard.Karten.Color.NONE;
                 break;
 
 
         }
+
     }
-
-
-
-    /*
-    public Card (int i) {
-        switch (i) {
-            case 1:
-                return (new Card(Wizzard.Color.BLUE, Wizzard.Value.ONE));
-            case 2:
-                return (new Card(Wizzard.Color.BLUE, Wizzard.Value.TWO));
-            case 3:
-                return (new Card(Wizzard.Color.BLUE, Wizzard.Value.THREE));
-            case 4:
-                return (new Card(Wizzard.Color.BLUE, Wizzard.Value.FOUR));
-            case 5:
-                return (new Card(Wizzard.Color.BLUE, Wizzard.Value.FIVE));
-            case 6:
-                return (new Card(Wizzard.Color.BLUE, Wizzard.Value.SIX));
-            case 7:
-                return (new Card(Wizzard.Color.BLUE, Wizzard.Value.SEVEN));
-            case 8:
-                return (new Card(Wizzard.Color.BLUE, Wizzard.Value.EIGHT));
-            case 9:
-                return (new Card(Wizzard.Color.BLUE, Wizzard.Value.NINE));
-            case 10:
-                return (new Card(Wizzard.Color.BLUE, Wizzard.Value.TEN));
-            case 11:
-                return (new Card(Wizzard.Color.BLUE, Wizzard.Value.ELEVEN));
-            case 12:
-                return (new Card(Wizzard.Color.BLUE, Wizzard.Value.TWELVE));
-            case 13:
-                return (new Card(Wizzard.Color.BLUE, Wizzard.Value.THIRTEEN));
-            case 14:
-                return (new Card(Wizzard.Color.RED, Wizzard.Value.TWO));
-            case 15:
-                return (new Card(Wizzard.Color.RED, Wizzard.Value.THREE));
-            case 16:
-                return (new Card(Wizzard.Color.RED, Wizzard.Value.FOUR));
-            case 17:
-                return (new Card(Wizzard.Color.RED, Wizzard.Value.FIVE));
-            case 18:
-                return (new Card(Wizzard.Color.RED, Wizzard.Value.SIX));
-            case 19:
-                return (new Card(Wizzard.Color.RED, Wizzard.Value.SEVEN));
-            case 20:
-                return (new Card(Wizzard.Color.RED, Wizzard.Value.EIGHT));
-            case 21:
-                return (new Card(Wizzard.Color.RED, Wizzard.Value.NINE));
-            case 22:
-                return (new Card(Wizzard.Color.RED, Wizzard.Value.TEN));
-            case 23:
-                return (new Card(Wizzard.Color.RED, Wizzard.Value.ELEVEN));
-            case 24:
-                return (new Card(Wizzard.Color.RED, Wizzard.Value.TWELVE));
-            case 25:
-                return (new Card(Wizzard.Color.RED, Wizzard.Value.THIRTEEN));
-            case 26:
-                return (new Card(Wizzard.Color.RED, Wizzard.Value.ONE));
-            case 27:
-                return (new Card(Wizzard.Color.GREEN, Wizzard.Value.TWO));
-            case 28:
-                return (new Card(Wizzard.Color.GREEN, Wizzard.Value.THREE));
-            case 29:
-                return (new Card(Wizzard.Color.GREEN, Wizzard.Value.FOUR));
-            case 30:
-                return (new Card(Wizzard.Color.GREEN, Wizzard.Value.FIVE));
-            case 31:
-                return (new Card(Wizzard.Color.GREEN, Wizzard.Value.SIX));
-            case 32:
-                return (new Card(Wizzard.Color.GREEN, Wizzard.Value.SEVEN));
-            case 33:
-                return (new Card(Wizzard.Color.GREEN, Wizzard.Value.EIGHT));
-            case 34:
-                return (new Card(Wizzard.Color.GREEN, Wizzard.Value.NINE));
-            case 35:
-                return (new Card(Wizzard.Color.GREEN, Wizzard.Value.TEN));
-            case 36:
-                return (new Card(Wizzard.Color.GREEN, Wizzard.Value.ELEVEN));
-            case 37:
-                return (new Card(Wizzard.Color.GREEN, Wizzard.Value.TWELVE));
-            case 38:
-                return (new Card(Wizzard.Color.GREEN, Wizzard.Value.THIRTEEN));
-            case 39:
-                return (new Card(Wizzard.Color.GREEN, Wizzard.Value.ONE));
-            case 40:
-                return (new Card(Wizzard.Color.YELLOW, Wizzard.Value.TWO));
-            case 41:
-                return (new Card(Wizzard.Color.YELLOW, Wizzard.Value.THREE));
-            case 42:
-                return (new Card(Wizzard.Color.YELLOW, Wizzard.Value.FOUR));
-            case 43:
-                return (new Card(Wizzard.Color.YELLOW, Wizzard.Value.FIVE));
-            case 44:
-                return (new Card(Wizzard.Color.YELLOW, Wizzard.Value.SIX));
-            case 45:
-                return (new Card(Wizzard.Color.YELLOW, Wizzard.Value.SEVEN));
-            case 46:
-                return (new Card(Wizzard.Color.YELLOW, Wizzard.Value.EIGHT));
-            case 47:
-                return (new Card(Wizzard.Color.YELLOW, Wizzard.Value.NINE));
-            case 48:
-                return (new Card(Wizzard.Color.YELLOW, Wizzard.Value.TEN));
-            case 49:
-                return (new Card(Wizzard.Color.YELLOW, Wizzard.Value.ELEVEN));
-            case 50:
-                return (new Card(Wizzard.Color.YELLOW, Wizzard.Value.TWELVE));
-            case 51:
-                return (new Card(Wizzard.Color.YELLOW, Wizzard.Value.THIRTEEN));
-            case 52:
-                return (new Card(Wizzard.Color.YELLOW, Wizzard.Value.ONE));
-            case 53:
-            case 54:
-            case 55:
-            case 56:
-                return (new Card(Wizzard.Color.WHITE, Wizzard.Value.ELEVEN));
-            case 57:
-            case 58:
-            case 59:
-            case 60:
-                return (new Card(Wizzard.Color.WHITE, Wizzard.Value.FOOL));
-
-            default:
-                return (new Card(Wizzard.Color.NONE, Wizzard.Value.NONE));
-
-
-        }
-    }
-
-    */
-
 
 
 }

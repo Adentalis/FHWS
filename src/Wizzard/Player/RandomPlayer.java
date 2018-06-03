@@ -2,13 +2,19 @@ package Wizzard.Player;
 
 public class RandomPlayer extends AbstractPlayer {
 
+    public RandomPlayer(String name){
+        super(name);
+    }
+
     @Override
-    public int getPoints() {
+    public void getMove() {
+
+    }
+
+    @Override
+    public int sayStiche() {
         return 0;
     }
 
-    @Override
-    public void showHand() {
 
-    }
 }
